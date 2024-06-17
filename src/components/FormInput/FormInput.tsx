@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const FormInput = () => {
+export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
   const [email, setEmail] = useState("");
   const [emailCorrect, setEmailCorrect] = useState<boolean>(true);
 
@@ -11,8 +11,10 @@ export const FormInput = () => {
     console.log(email);
     if (emailRegex.test(email)) {
       setEmailCorrect(true);
+      isEmailSet(true);
     } else {
       setEmailCorrect(false);
+      isEmailSet(false);
     }
   };
 
@@ -27,16 +29,14 @@ export const FormInput = () => {
         {emailCorrect ? <></> : <label className="text-red-500 text-sm font-semibold mb-2">Valid email required </label> }
       </div>
       <input
-        className={`border-2 rounded-md p-4 ${emailCorrect ? 'border-black focus:border-black' : "border-red-500 focus:border-red-500 bg-red-100" }`}
+        className={`border-2 rounded-md p-4 ${emailCorrect ? 'border-black outline-black' : "border-red-500 outline-red-500 bg-red-100" }`}
         id="email"
         type="text"
         placeholder="email@company.com"
         value={email}
         onChange={handleChange}
-        style={{ borderColor: emailCorrect ? 'black' : 'red', outline: emailCorrect ? 'black' : 'red' }}
-        //tailwind solution for some reason does not work, when it goes focus/active when incorrect it turns black
       />
-      <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white">
+      <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white hover:bg-gradient-to-r hover:from-pink-400 hover:to-orange-500">
         Subscribe to monthly newsletter
       </button>
     </form>

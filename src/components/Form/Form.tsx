@@ -5,7 +5,7 @@ import { ListItems } from '../ListItems/ListItems'
 import icon from '../../assets/images/icon-list.svg'
 import { FormInput } from '../FormInput/FormInput'
 
-export const Form = () => {
+export const Form: React.FC<FormProps> = ({isEmailSet}) => {
   return (
     <div className='flex items-center flex-col text-xl'>
       <h1 className='text-6xl font-bold mr-12'>Stay updated!</h1>
@@ -20,7 +20,7 @@ export const Form = () => {
           </div>
         ))}
       </div>
-      <FormInput/>
+      <FormInput isEmailSet={isEmailSet}/>
     </div>
   )
 }
