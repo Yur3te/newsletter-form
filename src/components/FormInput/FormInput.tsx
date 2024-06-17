@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const FormInput = () => {
+export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
   const [email, setEmail] = useState("");
   const [emailCorrect, setEmailCorrect] = useState<boolean>(true);
 
@@ -11,8 +11,10 @@ export const FormInput = () => {
     console.log(email);
     if (emailRegex.test(email)) {
       setEmailCorrect(true);
+      isEmailSet(true);
     } else {
       setEmailCorrect(false);
+      isEmailSet(false);
     }
   };
 
@@ -34,7 +36,7 @@ export const FormInput = () => {
         value={email}
         onChange={handleChange}
       />
-      <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white">
+      <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white hover:bg-gradient-to-r hover:from-pink-400 hover:to-orange-500">
         Subscribe to monthly newsletter
       </button>
     </form>
