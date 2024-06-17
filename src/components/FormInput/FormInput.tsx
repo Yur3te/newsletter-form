@@ -27,14 +27,12 @@ export const FormInput = () => {
         {emailCorrect ? <></> : <label className="text-red-500 text-sm font-semibold mb-2">Valid email required </label> }
       </div>
       <input
-        className={`border-2 rounded-md p-4 ${emailCorrect ? 'border-black focus:border-black' : "border-red-500 focus:border-red-500 bg-red-100" }`}
+        className={`border-2 rounded-md p-4 ${emailCorrect ? 'border-black outline-black' : "border-red-500 outline-red-500 bg-red-100" }`}
         id="email"
         type="text"
         placeholder="email@company.com"
         value={email}
         onChange={handleChange}
-        style={{ borderColor: emailCorrect ? 'black' : 'red', outline: emailCorrect ? 'black' : 'red' }}
-        //tailwind solution for some reason does not work, when it goes focus/active when incorrect it turns black
       />
       <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white">
         Subscribe to monthly newsletter
