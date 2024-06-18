@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
-  const [email, setEmail] = useState("");
+export const FormInput: React.FC<FormProps> = ({email, setEmail}) => {
+  const [emailTmp, setEmailTmp] = useState("");
   const [emailCorrect, setEmailCorrect] = useState<boolean>(true);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -9,17 +9,17 @@ export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(email);
-    if (emailRegex.test(email)) {
+    if (emailRegex.test(emailTmp)) {
       setEmailCorrect(true);
-      isEmailSet(true);
+      setEmail(emailTmp);
     } else {
       setEmailCorrect(false);
-      isEmailSet(false);
+      setEmail("");
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    setEmailTmp(e.target.value);
   }
 
   return (
@@ -33,7 +33,7 @@ export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
         id="email"
         type="text"
         placeholder="email@company.com"
-        value={email}
+        value={emailTmp}
         onChange={handleChange}
       />
       <button className="bg-blue-950 p-4 rounded-xl mt-4 text-white hover:bg-gradient-to-r hover:from-pink-400 hover:to-orange-500">

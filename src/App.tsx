@@ -7,15 +7,16 @@ import imageMobile from "./assets/images/illustration-sign-up-mobile.svg";
 import { SuccessPop } from "./components/SuccessPop/SuccessPop";
 
 function App() {
-  const [emailProvided, setEmailProvided] = useState<Boolean>(false);
+  // const [emailProvided, setEmailProvided] = useState<Boolean>(false);
+  const [email, setEmail] = useState("");
 
   return (
     <div className="flex items-center justify-center h-svh">
-      {emailProvided ? (
-        <SuccessPop isEmailSet={setEmailProvided}/>
+      {email ? (
+        <SuccessPop email={email} setEmail={setEmail}/>
       ) : (
         <div className="flex flex-col-reverse sm:flex-row sm:space-x-0 sm:p-6 items-center justify-center bg-white sm:rounded-3xl sm:border-black sm:border-2 sm:overflow-hidden h-full sm:h-auto">
-          <Form isEmailSet={setEmailProvided} />
+          <Form email={email} setEmail={setEmail}/>
           <img className="w-auto sm:block hidden" src={imageDesktop} alt="" />
           <img className="w-full -mt-6 block sm:hidden " src={imageMobile} alt="" />
         </div>

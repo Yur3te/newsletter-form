@@ -5,7 +5,7 @@ import { ListItems } from '../ListItems/ListItems'
 import icon from '../../assets/images/icon-list.svg'
 import { FormInput } from '../FormInput/FormInput'
 
-export const Form: React.FC<FormProps> = ({isEmailSet}) => {
+export const Form: React.FC<FormProps> = ({email, setEmail}) => {
   return (
     <div className='flex items-streach flex-col text-xl p-6 sm:p-12 sm:max-w-xl sm:box-border'>
       <h1 className='text-4xl sm:text-6xl font-bold'>Stay updated!</h1>
@@ -18,7 +18,7 @@ export const Form: React.FC<FormProps> = ({isEmailSet}) => {
           </div>
         ))}
       </div>
-      <FormInput isEmailSet={isEmailSet}/>
+      <FormInput email={email} setEmail={setEmail}/>
     </div>
   )
 }

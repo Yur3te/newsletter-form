@@ -1,4 +1,5 @@
 interface FormProps {
-    isEmailSet: (emailProvided: boolean) => void;
+    email: string
+    setEmail: (setEmail: string) => void;
   }
   
