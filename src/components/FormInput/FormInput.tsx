@@ -23,7 +23,7 @@ export const FormInput: React.FC<FormProps> = ({isEmailSet}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col w-full px-16 pt-6 mr-6">
+    <form onSubmit={handleSubmit} className="flex flex-col w-auto pt-6">
       <div className="flex justify-between">
         <label htmlFor="email" className="text-sm font-bold mb-2">Email address</label>
         {emailCorrect ? <></> : <label className="text-red-500 text-sm font-semibold mb-2">Valid email required </label> }
