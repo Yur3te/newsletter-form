@@ -11,7 +11,7 @@ function App() {
   const [email, setEmail] = useState("");
 
   return (
-    <div className="flex items-center justify-center h-svh">
+    <div className="flex items-center justify-center sm:min-h-screen min-h-[100dvh]">
       {email ? (
         <SuccessPop email={email} setEmail={setEmail}/>
       ) : (
